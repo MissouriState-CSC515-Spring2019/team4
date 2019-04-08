@@ -2,6 +2,6 @@
 
 
 Project Members:
-Fred
-Sen Pang
-William Richardson
+* Fred
+* Sen Pang
+* William Richardson
