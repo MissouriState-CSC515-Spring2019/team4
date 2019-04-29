@@ -1,18 +1,24 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { ResultsListComponent } from './results-list/results-list.component';
-import { MovieDetailsComponent } from './movie-details/movie-details.component'; 
-import { HomeComponent} from './home/home.component';
+import { NgModule }      from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+import { PageNotFoundComponent }  from './page-not-found.component';
+import { ResultsComponent }  from './results/results.component';
+import { ViewDetailComponent }  from './results/view-detail.component';
+import { SearchMovieComponent }  from './search-movie/search-movie.component';
+import { UpdateBookComponent }  from './manage-book/update-book.component';
+import { ManageBookComponent }  from './manage-book/manage-book.component';
 
 const routes: Routes = [
-  {path: 'results', component: ResultsListComponent},
-  {path: 'details', component: MovieDetailsComponent},
-  {path: '', component: HomeComponent}
+    { path: 'results', component: ResultsComponent },
+	{ path: 'view-detail/:id', component: ViewDetailComponent },		  
+	{ path: 'search-movie', component: SearchMovieComponent },
+	{ path: 'manage-book', component: ManageBookComponent },
+	{ path: 'update-book/:id', component: UpdateBookComponent }, 
+	{ path: '', redirectTo: '/search-movie', pathMatch: 'full' },
+	{ path: '**', component: PageNotFoundComponent }
 ];
-
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [ RouterModule.forRoot(routes) ],
+  exports: [ RouterModule ]
 })
-export class AppRoutingModule { }
-export const rountingComponents = [ResultsListComponent, MovieDetailsComponent];
+export class AppRoutingModule{ }

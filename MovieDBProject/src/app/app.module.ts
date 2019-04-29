@@ -1,21 +1,33 @@
+import { NgModule }   from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { FormsModule }   from '@angular/forms';
 
-import { AppRoutingModule, rountingComponents } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { AppComponent }  from './app.component';
+import { PageNotFoundComponent }  from './page-not-found.component';
+import { ResultsComponent }  from './results/results.component';
+import { ViewDetailComponent }  from './results/view-detail.component';
+import { SearchMovieComponent }  from './search-movie/search-movie.component';
+import { UpdateBookComponent }  from './manage-book/update-book.component';
+import { ManageBookComponent }  from './manage-book/manage-book.component';
+import { BookService } from './services/book.service';
+import { AppRoutingModule }  from './app-routing.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    rountingComponents,
-    HomeComponent
-  ],
-  imports: [
+  imports: [     
     BrowserModule,
-    AppRoutingModule
+		FormsModule,
+		AppRoutingModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [
+        AppComponent, 
+		PageNotFoundComponent,
+		ResultsComponent,
+		ViewDetailComponent,
+		SearchMovieComponent,
+		ManageBookComponent,
+		UpdateBookComponent
+  ],
+  providers: [ BookService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

@@ -1,10 +1,9 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Movie DB Single Page Application
-  </h1>
+<h1>{{title}}</h1>
+<nav [ngClass] = "'menu'">
+  <a routerLink="/search-movie" routerLinkActive="active-link">Search Movie</a> | 
+   <a routerLink="/results" routerLinkActive="active-link">Results</a> | 
+</nav>  
+<div>	
+  <router-outlet></router-outlet>	
 </div>
 
-
-
-<router-outlet></router-outlet>
