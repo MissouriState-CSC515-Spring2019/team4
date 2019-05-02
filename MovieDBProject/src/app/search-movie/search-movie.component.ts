@@ -19,10 +19,16 @@ export class SearchMovieComponent implements OnInit {
     }
     ngOnInit(): void {
         this.getBooks();
+        
+        
     }
     addBook(): void {
 	    this.bookService.addBook(this.book);
 		this.router.navigate(['/results']);
+    }
+    onKey(event: any): void {
+        if(event.key === "Enter"){
+            this.addBook();
+        }
     }	
 }
-    

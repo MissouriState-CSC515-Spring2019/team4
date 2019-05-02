@@ -2,7 +2,7 @@
 <div>
  <div>
     <label>Title: </label>
-    <input [(ngModel)]="book.title" />
+    <input [(ngModel)]="book.title" (keyup)="onKey($event)"/>
  </div>		 
  <div>
     <button (click)="addBook()">Search</button>

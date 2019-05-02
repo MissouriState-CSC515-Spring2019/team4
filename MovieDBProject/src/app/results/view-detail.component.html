@@ -4,11 +4,17 @@
     Id: {{book.id}}
   </li>
   <li>
-    Name: {{book.name}}
+    Title: {{book.title}}
   </li>
   <li>
-    Price: {{book.price}}
+    Director: {{book.director}}
   </li>
+  <li>
+    Year: {{book.year}}
+  </li>
+<!--   <li>
+    Price: {{book.price}}
+  </li> -->
   <li>
     Description: {{book.description}}
   </li>  
@@ -17,6 +23,7 @@
  <button (click)="goBack()">Go Back</button>
  <button (click)="updateBook(book.id)">Update</button>
 </div>
+<!--
 <div>
  <a [routerLink]="['/buy-book']">Buy Book</a>
-</div>
+</div>-->

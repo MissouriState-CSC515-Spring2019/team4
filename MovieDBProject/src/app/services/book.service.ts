@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Book } from './book';
 import { BOOKS } from './mock-books';
+import { Observable, of } from 'rxjs';
 
 @Injectable()
 export class BookService {
@@ -12,10 +13,14 @@ export class BookService {
 			books.push(book);}
 		);
     }
-	/** getBook(id: number): Promise<Book> {
-        return this.getBooks()
-            .then(books => books.find(book => book.id === id));
-    }*/
+	async getBook(id: number): Promise<Book> {
+        const books = await this.getBooks();
+        return books.find(book => book.id === id);
+    } 
+/*     getBook(id: number): Observable<Book> {
+        //const id = +this.route.snapshot.paramMap.get('id');
+        return of(BOOKS.find(book => book.id === id));
+    } */
     /** 
 	deleteBook(id: number): void {
 		this.getBooks().then(books => {

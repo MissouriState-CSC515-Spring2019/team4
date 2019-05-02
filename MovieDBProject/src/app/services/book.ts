@@ -1,5 +1,9 @@
 export class Book {
    title: string;
-   constructor() { 
+   id: number;
+   director: string;
+   year: number;
+   description: string;
+   constructor() {
    }
 }
