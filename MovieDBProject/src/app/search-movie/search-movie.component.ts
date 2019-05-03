@@ -24,7 +24,31 @@ export class SearchMovieComponent implements OnInit {
     }
     addBook(): void {
 	    this.bookService.addBook(this.book);
-		this.router.navigate(['/results', this.book.title]);
+        this.router.navigate(['/results', this.book.title]);
+        //'https://api.themoviedb.org/3/search/movie?apiO_key={api_key}&query={query_string}'
+        fetch('https://api.themoviedb.org/3/search/movie?api_key=b4e202cf5f6d8493a5305fd6d464b281&query=' + this.book.title)
+        .then(response => {
+            //catch server 500 error here
+            if(!response.ok){
+                throw new Error(response.statusText);
+            }
+            //console.log(response);
+            //console.log(response);
+            return response.json();
+        })
+        .then(data => {
+            //console.log(data);
+            data.results.forEach(element => {
+                //console.log(element);
+                let newbook = new Book();
+                newbook.title = element.title;
+                newbook.id = element.id;
+                //newbook.director = 
+                newbook.year = element.release_date;
+                newbook.description = element.overview;
+                this.bookService.addBook(newbook);
+            });
+        });
     }
     onKey(event: any): void {
         if(event.key === "Enter"){

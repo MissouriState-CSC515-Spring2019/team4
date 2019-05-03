@@ -17,6 +17,9 @@ export class BookService {
         const books = await this.getBooks();
         return books.find(book => book.id === id);
     } 
+    purgeBooks(): void {
+        //BOOKS = Book[];
+    }
 /*     getBook(id: number): Observable<Book> {
         //const id = +this.route.snapshot.paramMap.get('id');
         return of(BOOKS.find(book => book.id === id));
