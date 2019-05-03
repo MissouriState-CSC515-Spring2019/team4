@@ -24,7 +24,7 @@ export class SearchMovieComponent implements OnInit {
     }
     addBook(): void {
 	    this.bookService.addBook(this.book);
-		this.router.navigate(['/results']);
+		this.router.navigate(['/results', this.book.title]);
     }
     onKey(event: any): void {
         if(event.key === "Enter"){
