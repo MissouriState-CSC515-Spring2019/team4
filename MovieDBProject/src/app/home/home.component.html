@@ -1,0 +1,7 @@
+
+<input #box (keyup.enter)="onEnter(box.value)">
+<p>{{value}}</p>
+
+<nav>
+    <a [routerLink]="['/results',value]">Search</a>
+</nav>

@@ -1,5 +1,5 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, logging, by, element } from 'protractor';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -10,7 +10,14 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to LibraryDemo!');
+    //browser.pause();
+    expect(page.getTitleText()).toEqual('Movie DB Single Page Application');
+  });
+
+  it('should display Search Movie button', () => {
+    page.navigateTo();
+    //browser.pause();
+    expect(page.getSearchMovieButton().getText()).toEqual('Search Movie');
   });
 
   afterEach(async () => {
