@@ -5,5 +5,10 @@ export class Book {
    year: number;
    description: string;
    constructor() {
+      this.title = "";
+      this.id = -1;
+      this.director = "";
+      this.year = -1;
+      this.description = "";
    }
 }
