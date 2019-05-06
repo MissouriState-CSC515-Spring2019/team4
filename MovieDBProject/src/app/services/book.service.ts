@@ -4,18 +4,24 @@ import { BOOKS } from './mock-books';
 
 @Injectable()
 export class BookService {
+    [x: string]: any;
     getBooks(): Promise<Book[]> {
         return Promise.resolve(BOOKS);
     }
 	addBook(book:Book): void {
 		this.getBooks().then(books => {
-			books.push(book);}
-		);
+            books.push(book);
+        });
     }
-	/** getBook(id: number): Promise<Book> {
+    clearList(): void{
+        this.getBooks().then(books =>{
+            books.length = 0;
+        })
+    }
+	getBook(id: number): Promise<Book> {
         return this.getBooks()
             .then(books => books.find(book => book.id === id));
-    }*/
+    }
     /** 
 	deleteBook(id: number): void {
 		this.getBooks().then(books => {

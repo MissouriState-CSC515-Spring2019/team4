@@ -1,13 +1,13 @@
 <h2>View Detail</h2>
 <ul [ngClass] = "'view-detail'">
   <li>
-    Id: {{book.id}}
+    Title: {{book.title}}
   </li>
   <li>
-    Name: {{book.name}}
+    ID: {{book.id}}
   </li>
   <li>
-    Price: {{book.price}}
+    Year: {{book.year}}
   </li>
   <li>
     Description: {{book.description}}
@@ -15,8 +15,4 @@
 </ul>
 <div>
  <button (click)="goBack()">Go Back</button>
- <button (click)="updateBook(book.id)">Update</button>
-</div>
-<div>
- <a [routerLink]="['/buy-book']">Buy Book</a>
 </div>
