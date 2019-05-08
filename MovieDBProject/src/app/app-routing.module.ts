@@ -7,9 +7,12 @@ import { ViewDetailComponent }  from './results/view-detail.component';
 import { SearchMovieComponent }  from './search-movie/search-movie.component';
 import { UpdateBookComponent }  from './manage-book/update-book.component';
 import { ManageBookComponent }  from './manage-book/manage-book.component';
+import { identifierModuleUrl } from '@angular/compiler';
 
 const routes: Routes = [
-    { path: 'results', component: ResultsComponent },
+		{ path: 'results', component: ResultsComponent },
+		{ path: 'results/:id', component: ResultsComponent },
+		//{ path: 'results;title=:id', component: ResultsComponent },
 	{ path: 'view-detail/:id', component: ViewDetailComponent },		  
 	{ path: 'search-movie', component: SearchMovieComponent },
 	{ path: 'manage-book', component: ManageBookComponent },

@@ -19,9 +19,11 @@ export class ViewDetailComponent implements OnInit {
                 private location: Location) { }
                 
     ngOnInit(): void {
+        this.bookService.updateBooks(parseInt(this.route.snapshot.paramMap.get('id')));
         this.route.params.pipe(switchMap((params: Params) =>
         this.bookService.getBook(+params['id'])))
         .subscribe(book => this.book = book);
+        //console.log(this.route.snapshot.paramMap.get('id'));
     }
     goBack(): void {
         this.location.back();

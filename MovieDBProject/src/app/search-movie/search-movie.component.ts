@@ -23,6 +23,8 @@ export class SearchMovieComponent implements OnInit {
     addBook(): void {
 	    
         this.router.navigate(['/results', {title : this.book.title}]);
+        this.bookService.updateBooks(this.book.title);
+        /*
         fetch('https://api.themoviedb.org/3/search/movie?api_key=b4e202cf5f6d8493a5305fd6d464b281&query=' + this.book.title)
         .then(response => {
             //catch server 500 error here
@@ -46,7 +48,7 @@ export class SearchMovieComponent implements OnInit {
                 newbook.description = element.overview;
                 this.bookService.addBook(newbook);
             });
-        });
+        });*/
     }
     onKey(event: any): void {
         if(event.key === "Enter"){
