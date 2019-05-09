@@ -6,9 +6,6 @@ import { isUndefined } from 'util';
 @Injectable()
 export class BookService {
     [x: string]: any;
-    hasBooks(): boolean {
-        return BOOKS.length > 0;
-    }
     getBooks(): Promise<Book[]> {
         return Promise.resolve(BOOKS);
     }
@@ -23,39 +20,31 @@ export class BookService {
         })
     }
 
-	getBook(id: number): Promise<Book> {
+	async getBook(id: number): Promise<Book> {
         //console.log(!BOOKS.some(book => book.id === id));
 /*         if( !BOOKS.some(book => book.id === id)){
                 console.log("updating books: ")
                 this.updateBooks(id);
                 console.log("updated:");
             } */
-        return this.getBooks()
-            .then(books => {if(!books.some(book => book.id === id)){
-                return this.updateBooks(id);
+        return await this.getBooks()
+            .then(async books => {if(!books.some(book => book.id === id)){
+                //console.log("1");
+                return await this.updateBooks(id);
             }else{
-                return books;
+                //console.log("2");
+                return books.find(book => book.id == id);
             }})
-            .then(books => {
-                //console.log(books);
-                //console.log(typeof(id) + id);
-                //console.log(typeof(books[0].id) + books[0].id)
-                //console.log(books.find(book => book.id === id));
-                return books;
-            })
-            .then(books => {
-                //console.log("test");
-                return books.find(book => book.id === id)})
-            .then(book => {if(book){
-                //console.log(book);
+            .then(book =>{
+                //console.log(book); 
                 return book;
-            }});
+            });
+            //.then(books => books.find(book => book.id == id));
     }
 
-    updateBooks(id: number): Promise<Book[]>;
-    updateBooks(title: string): Promise<Book[]>;
-    updateBooks(paramOne: string | number): Promise<Book[]>{
-        //console.log(id);
+    updateBooks(id: number): Promise<Book>;
+    updateBooks(title: string): Promise<Book>;
+    updateBooks(paramOne: string | number): Promise<Book>{
         //fetch('https://api.themoviedb.org/3/movie/' + id + '?api_key=b4e202cf5f6d8493a5305fd6d464b281')
         let searchStr: string;
         if (typeof paramOne === 'number'){
@@ -77,8 +66,6 @@ export class BookService {
             //console.log(data);
             if(typeof paramOne === 'number'){
                 data ={"results": [data]};
-                //console.log(data2);
-                //data = data2;
             }
             //this.clearList();
             data.results.forEach(element => {
@@ -91,12 +78,19 @@ export class BookService {
                 newbook.description = element.overview;
                 //console.log(newbook);
                 this.addBook(newbook);
+                if(typeof paramOne === 'number'){
+                    //console.log(this.newbook);
+                    return Promise.resolve(this.newbook);
+                    //return newbook;
+                }
                 //this.addBook(newbook);
                 //this.getBooks().then(books => console.log(books.length));
             });
+            //return BOOKS[0];
         });
-        //return Promise.resolve(BOOKS);
-        return this.getBooks();
+        return Promise.resolve(BOOKS[0]);
+        //console.log(this.getBooks()[0]);
+        //return this.getBooks()[0];
     }
 
 
