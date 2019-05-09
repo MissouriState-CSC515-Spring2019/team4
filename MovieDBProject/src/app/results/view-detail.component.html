@@ -1,18 +1,20 @@
 <h2>View Detail</h2>
-<ul [ngClass] = "'view-detail'">
-  <li>
-    Title: {{book.title}}
-  </li>
-  <li>
-    ID: {{book.id}}
-  </li>
-  <li>
-    Year: {{book.year}}
-  </li>
-  <li>
-    Description: {{book.description}}
-  </li>  
-</ul>
-<div>
- <button (click)="goBack()">Go Back</button>
-</div>
+<!-- <div *ngIf="idLoaded"> -->
+  <ul [ngClass] = "'view-detail'">
+    <li>
+      Title: {{book.title}}
+    </li>
+    <li>
+      ID: {{book.id}}
+    </li>
+    <li>
+      Year: {{book.year}}
+    </li>
+    <li>
+      Description: {{book.description}}
+    </li>  
+  </ul>
+  <div>
+  <button (click)="goBack()">Go Back</button>
+  </div>
+<!-- </div> -->

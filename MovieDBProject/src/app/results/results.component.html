@@ -2,6 +2,6 @@
 <ul [ngClass] = "'home'">
   <li *ngFor="let book of books" >
     Title: {{book.title}}
-	<a [routerLink]="['/view-detail', book.id]">View Detail</a>
+	<a [routerLink]="['/view-detail', {id: book.id}]">View Detail</a>
   </li>
 </ul>

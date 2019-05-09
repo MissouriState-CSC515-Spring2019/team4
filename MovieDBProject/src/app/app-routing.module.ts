@@ -13,6 +13,7 @@ const routes: Routes = [
 		{ path: 'results', component: ResultsComponent },
 		{ path: 'results/:id', component: ResultsComponent },
 		//{ path: 'results;title=:id', component: ResultsComponent },
+	{ path: 'view-detail', component: ViewDetailComponent },
 	{ path: 'view-detail/:id', component: ViewDetailComponent },		  
 	{ path: 'search-movie', component: SearchMovieComponent },
 	{ path: 'manage-book', component: ManageBookComponent },

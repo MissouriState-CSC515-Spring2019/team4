@@ -20,39 +20,15 @@ export class SearchMovieComponent implements OnInit {
     ngOnInit(): void {
         this.getBooks();
     }
-    addBook(): void {
+    searchBooks(): void {
 	    
         this.router.navigate(['/results', {title : this.book.title}]);
-        this.bookService.updateBooks(this.book.title);
-        /*
-        fetch('https://api.themoviedb.org/3/search/movie?api_key=b4e202cf5f6d8493a5305fd6d464b281&query=' + this.book.title)
-        .then(response => {
-            //catch server 500 error here
-            if(!response.ok){
-                throw new Error(response.statusText);
-            }
-            //console.log(response);
-            //console.log(response);
-            return response.json();
-        })
-        .then(data => {
-            //console.log(data);
-            this.bookService.clearList();
-            data.results.forEach(element => {
-                //console.log(element);
-                let newbook = new Book();
-                newbook.title = element.title;
-                newbook.id = element.id;
-                //newbook.director = 
-                newbook.year = element.release_date;
-                newbook.description = element.overview;
-                this.bookService.addBook(newbook);
-            });
-        });*/
+        //this.bookService.updateBooks(this.book.title);
+        
     }
     onKey(event: any): void {
         if(event.key === "Enter"){
-            this.addBook();
+            this.searchBooks();
         }
     }
 }    	
