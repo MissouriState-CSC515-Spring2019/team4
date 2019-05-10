@@ -1,20 +1,32 @@
 h2 {
   font-size: 1.5em;
   margin-top: 10;
+  text-align: center;
+}
+body {
+  background-color: pink;
 }
 label {
   display: inline-block;
   width: 8em;
   color: #607D8B;
+  position: relative; 
+  left:420px;
+  font-size:1.5em;
 }
 input {
   height: 1.5em;
   font-size: 1em;
+  position: relative; 
+  left:300px;
 }
 button {
+  font-size:1.5em;
   margin-top: 20px;
   background-color: #eee;
   border: none;
   padding: 3px 10px;
   cursor: pointer; cursor: hand;
+  position: relative; 
+  left:520px;
 }
