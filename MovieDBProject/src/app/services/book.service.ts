@@ -7,7 +7,8 @@ import { isUndefined } from 'util';
 export class BookService {
     [x: string]: any;
     getAPIKey(): String{
-        return 'b4e202cf5f6d8493a5305fd6d464b281';
+        //Add your API key here.
+        return 'api key';
     }
     getBooks(): Promise<Book[]> {
         return Promise.resolve(BOOKS);
@@ -48,7 +49,7 @@ export class BookService {
     updateBooks(id: number): Promise<Book>;
     updateBooks(title: string): Promise<Book>;
     updateBooks(paramOne: string | number): Promise<Book>{
-        //fetch('https://api.themoviedb.org/3/movie/' + id + '?api_key=b4e202cf5f6d8493a5305fd6d464b281')
+        //fetch('https://api.themoviedb.org/3/movie/' + id + '?api_key=')
         let searchStr: string;
         if (typeof paramOne === 'number'){
             //this.clearList();
