@@ -8,6 +8,10 @@ This project will be  using Angular for its framework.
 * Checkout repo
 * Get API key from this website (follow tutorial): https://developers.themoviedb.org/3/getting-started/introduction
 * Set api_key variable to your obtained key within the book.service.ts file.
+* Open the CLI from command line while in the main folder
+* Run 'npm install'
+* Run 'npm start'
+* Go to 'http://localhost:4200/'
 
 ### Project Members
 * Fred - JunHyeong Lee
