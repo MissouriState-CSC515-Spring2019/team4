@@ -6,6 +6,9 @@ import { isUndefined } from 'util';
 @Injectable()
 export class BookService {
     [x: string]: any;
+    getAPIKey(): String{
+        return 'b4e202cf5f6d8493a5305fd6d464b281';
+    }
     getBooks(): Promise<Book[]> {
         return Promise.resolve(BOOKS);
     }
@@ -49,10 +52,10 @@ export class BookService {
         let searchStr: string;
         if (typeof paramOne === 'number'){
             //this.clearList();
-            searchStr = 'https://api.themoviedb.org/3/movie/' + paramOne + '?api_key=b4e202cf5f6d8493a5305fd6d464b281';
+            searchStr = 'https://api.themoviedb.org/3/movie/' + paramOne + '?api_key=' + this.getAPIKey();
         } else {
             this.clearList();
-            searchStr = 'https://api.themoviedb.org/3/search/movie?api_key=b4e202cf5f6d8493a5305fd6d464b281&query=' + paramOne;
+            searchStr = 'https://api.themoviedb.org/3/search/movie?api_key=' + this.getAPIKey() + '&query=' + paramOne;
         }
         fetch(searchStr)
         .then(response => {

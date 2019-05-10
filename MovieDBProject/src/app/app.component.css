@@ -1,14 +1,25 @@
 h1 {
-  color: #999;
-  margin-bottom: 10;
-  font-size: 2em;
-}
-.menu {
-    display: inline-block;
-    background-color: #eee;
-    border-radius: 4px;
-
-}
-.active-link {
-    color: #F20B22;
-}
+    color:green;
+    margin-bottom: 10;
+    font-size: 2em;
+    text-align: center;
+  }
+  body {
+      background: pink;
+  }
+  .menu {
+      display: inline-block;
+      background-color: #eee;
+      border-radius: 4px;
+      top:10px;
+      left:500px;
+      position: relative;  
+  
+  }
+  .active-link {
+      color: #F20B22;
+      text-align: center;
+  }
+  #custom-image {
+      background-image: url('download.png');
+  }
